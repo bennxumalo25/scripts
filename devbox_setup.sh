@@ -77,7 +77,7 @@ main_menu
 
 #Project menu
 git_clone(){
-echo ">>> please enter github repo url [e.g https://github.com/red24crm/project1]"
+echo ">>> please enter github repo url [e.g git@github.com/red24crm/project1]"
 read project
 cd /var/www/
 command `git clone $project .`

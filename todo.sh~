@@ -63,7 +63,7 @@ function configuration_variables(){
     while read line
     do
         eval echo "$line"
-    done < "project_setup/.env"
+    done < ".env"
 }
 
 configuration_variables
