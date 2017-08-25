@@ -1,4 +1,4 @@
-#!/bin/bash
+#k!/bin/bash
 
 #Black        0;30     Dark Gray     1;30
 #Red          0;31     Light Red     1;31
@@ -11,17 +11,6 @@
 function n(){
 printf '\n'
 }
-
-#add ssh keys
-function config_ssh_keys(){
-    #check if we already have ssh keys generated, we dont want to override existing
-    if [[ -f .ssh/id_rsa && -f .ssh/id_rsa.pub ]]; then
-       echo "both exist"
-    else
-       sudo ssh-keygen
-    fi
-}
-
 function git_install(){
 git --version > /dev/null 2>&1
 GIT_IS_INSTALLED=$?
@@ -91,6 +80,7 @@ install_postgres(){
 sudo apt-get update
 sudo apt-get install postgresql postgresql-contrib
 }
+
 config_postgres_db(){
 #create database alert_central;
 }
@@ -98,10 +88,6 @@ config_postgres_user(){
 #psql
 #create user ben with password 'somethingrandom';
 #grant all privileges on database db_name to someuser;
-}
-
-change_owner_to_current_user(){
-sudo chown $USER:sudo -R /var/www
 }
 
 function main_menu(){
